@@ -11,9 +11,9 @@
     </parent>
     
     <groupId>com.paymentchain</groupId>
-    <artifactId>customer</artifactId>
+    <artifactId>Customer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>customer</name>
+    <name>Customer</name>
     <description>Demo project for Spring Boot</description>
 
      <build>
