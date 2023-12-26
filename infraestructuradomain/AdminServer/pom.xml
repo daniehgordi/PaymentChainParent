@@ -6,7 +6,7 @@
     	<artifactId>infraestructuradomain</artifactId>
     	<version>1.0-SNAPSHOT</version>
     </parent> 
-    <artifactId>AdminServer</artifactId>
+    <artifactId>adminserver</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>AdminServer</name>
     <description>Servidor central para la administracion d etodos los microservicios</description>
