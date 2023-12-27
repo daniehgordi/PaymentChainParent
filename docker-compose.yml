@@ -28,7 +28,6 @@ services:
          -Xms256M 
          -Xmx256M
          -DEUREKA_SERVER=http://registry-discovery:8761/eureka/
-         -CONFIG_SERVER_URI:https://github.com/daniehgordi/config-server-repo.git
          #-Dspring.cloud.config.server.native.searchLocations=/var/config-data
     depends_on:
       - registry-discovery
