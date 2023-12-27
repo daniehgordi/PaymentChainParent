@@ -9,7 +9,7 @@ Modulo hijo 2 (infraestructuradomain) que es la parte de administracion, configu
 
 El desarrollo de los microservicios hemos mantenido la misma estructura de paquetes:
 - repository, controller, entity, ademas del paquete principal.
-- 
+  
 También hemos utilizado Docker para probar e implementar la aplicación de manera rápida a través
 de los contenedores.
 
