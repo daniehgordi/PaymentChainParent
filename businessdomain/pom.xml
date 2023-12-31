@@ -6,19 +6,23 @@
         <artifactId>PaymentChainParent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent> 
+    
     <groupId>com.paymentchain.businessdomain</groupId>
     <artifactId>businessdomain</artifactId>
-    <packaging>pom</packaging>    
+    <packaging>pom</packaging>  
+      
     <modules>
         <module>Customer</module>
         <module>Product</module>
         <module>Transaction</module>    
     </modules>
+    
     <properties>
         <spring-cloud-dependencies.version>2021.0.4</spring-cloud-dependencies.version>  
         <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>   
         <org.lombo.version>1.18.24</org.lombo.version>     
     </properties>
+    
     <dependencyManagement>
         <dependencies>
 			<dependency>
@@ -34,6 +38,7 @@
         </dependency>
         </dependencies>
     </dependencyManagement>  
+    
     <dependencies>        
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -56,10 +61,11 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
-          <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>      
+        <dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<scope>runtime</scope>
+		</dependency>     
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>

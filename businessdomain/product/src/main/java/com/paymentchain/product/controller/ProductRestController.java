@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.paymentchain.product.controller;
 
 import java.util.List;
@@ -15,49 +10,40 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.paymentchain.product.entities.Product;
-import com.paymentchain.product.respository.ProductRepository;
-/**
- *
- * @author sotobotero
- */
+import com.paymentchain.product.model.Product;
+import com.paymentchain.product.service.ProductService;
+
 @RestController
-@RequestMapping("/product")
 public class ProductRestController {
 
     @Autowired
-    ProductRepository productRepository;
+    ProductService service;
 
-
-     @GetMapping()
-    public List<Product> list() {
-        return productRepository.findAll();
-    }
-
-    @GetMapping("/{id}")
-    public Product get(@PathVariable long id) {
-        Product product = productRepository.findById(id).get();
-        return product;
-    }
-
-
-    @PutMapping("/{id}")
-    public ResponseEntity<?> put(@PathVariable String id, @RequestBody Product input) {
-        return null;
-    }
-
-   @PostMapping
-    public ResponseEntity<?> post(@RequestBody Product input) {
-        Product save = productRepository.save(input);
-        return ResponseEntity.ok(save);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable String id) {
-        return null;
-    }
+    @GetMapping(value="/product")
+    public List<Product> listaProducto(){
+    	return service.listaProduct();
+    };
+    
+    @PutMapping(value="/product/{idProduct}")
+	public void modificarProducto(@PathVariable("idProduct") int idProduct,@RequestBody Product Product) {
+    	service.modificarProduct(idProduct, Product);
+    };
+    
+    @DeleteMapping(value="/product/idProduct")
+	public void borrarProducto(@PathVariable("idProduct") int idProduct) {
+    	service.borrarProduct(idProduct);
+    };
+    
+    @PostMapping(value="/product")
+	public ResponseEntity<?> crearProducto(Product product){
+		return service.crearProducto(product);
+	};
+	
+	@GetMapping(value="/product/{idProduct}")
+	public Product buscarProducto(@PathVariable("idProduct") int idProduct) {
+		return service.buscarProduct(idProduct);
+	};
 
 }

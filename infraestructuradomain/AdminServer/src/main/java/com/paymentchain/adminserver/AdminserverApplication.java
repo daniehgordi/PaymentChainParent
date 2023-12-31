@@ -21,7 +21,7 @@ public class AdminserverApplication {
 
     @Bean
     SecurityFilterChain securityPermitAllConfigSecurityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests().anyRequest().permitAll()
+        http.authorizeHttpRequests().anyRequest().permitAll()
                 .and().csrf().disable();
         return http.build();
     }

@@ -6,51 +6,62 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>PaymentChainParent</name>
-    <description>POM parent project for all spring boot projects</description> 
- <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target> 
-        <spring-boot.version>2.7.5</spring-boot.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>    
-        <java-validation.version>2.0.1.Final</java-validation.version> 
-        <dockerfile-maven-version>1.4.13</dockerfile-maven-version>
-   </properties>  
-   <dependencyManagement>
+    <description>POM parent project for all spring boot projects</description>  
+
+    <!-- Importa las dependencias gestionadas por Spring Boot, incluyendo versiones coherentes -->
+    <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
+                <version>2.7.18</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>  
+
+    <!-- Dependencias Principales -->
     <dependencies>
+        <!-- Dependencia para procesar archivos YAML -->
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+        </dependency>
+
+        <!-- Dependencia principal de Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-        </dependency>  
+        </dependency>
+
+        <!-- Dependencia para habilitar Actuators (monitoreo, métricas, etc.) en Spring Boot -->
         <dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <!-- Dependencia para herramientas de desarrollo en Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
+
+        <!-- Dependencia para iniciar pruebas en Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <!-- Exclusión de la versión de JUnit Vintage para evitar conflictos -->
             <exclusions>
                 <exclusion>
                     <groupId>org.junit.vintage</groupId>
                     <artifactId>junit-vintage-engine</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>  
-    </dependencies>     
+        </dependency>
+    </dependencies>    
+
     <build>
         <plugins>
             <plugin>
@@ -64,7 +75,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>     
-                <version>${spring-boot.version}</version>      
+                <version>2.7.18</version>      
                 <executions>
                     <execution>
                         <goals>
@@ -91,7 +102,7 @@
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>${dockerfile-maven-version}</version>                               
+                <version>1.4.13</version>                               
                 <executions>
                     <execution>                        
                         <id>build-docker-image</id>
@@ -112,8 +123,10 @@
             </plugin>
         </plugins>
     </build>
+
     <modules>
         <module>businessdomain</module>
         <module>infraestructuradomain</module>
     </modules>
 </project>
+

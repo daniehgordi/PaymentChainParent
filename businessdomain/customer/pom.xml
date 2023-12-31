@@ -6,12 +6,24 @@
         <artifactId>businessdomain</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <groupId>com.paymentchain</groupId>
+    
     <artifactId>customer</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Customer</name>
-    <description>Demo project for Spring Boot</description>
-     <build>
+  
+    <dependencies>
+	       <dependency>
+	           <groupId>org.springframework.boot</groupId>
+	           <artifactId>spring-boot-starter-webflux</artifactId>
+	       </dependency>    
+    
+	    <dependency>
+		    <groupId>org.yaml</groupId>
+		    <artifactId>snakeyaml</artifactId>
+		</dependency>
+	</dependencies>
+    
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -19,4 +31,5 @@
             </plugin>
         </plugins>
     </build>
+   
 </project>

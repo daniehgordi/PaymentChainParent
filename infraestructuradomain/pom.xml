@@ -14,15 +14,12 @@
         <module>AdminServer</module>
         <module>ConfigServer</module>
     </modules>
-   <properties>
-          <spring-cloud-dependencies.version>2021.0.4</spring-cloud-dependencies.version>
-    </properties>
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring-cloud-dependencies.version}</version>
+                <version>2021.0.4</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
