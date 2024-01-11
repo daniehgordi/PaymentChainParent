@@ -1,7 +1,9 @@
 package com.paymentchain.customer.controller;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.paymentchain.customer.model.Customer;
 import com.paymentchain.customer.service.CustomerService;
-import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,13 +22,13 @@ public class CustomerRestController {
     @Autowired
     private CustomerService service;
     
-    @Value("${user.role}")
-    private String role;
-    
-    @GetMapping("/hello")
-    public String sayHello() {
-        return "Hello your role is: "+ role;
-    }
+//    @Value("${user.role}")
+//    private String role;
+//    
+//    @GetMapping("/hello")
+//    public String sayHello() {
+//        return "Hello your role is: "+ role;
+//    }
 
     @GetMapping(value="/customer")
     public List<Customer> listaClientes() {   
@@ -48,7 +50,7 @@ public class CustomerRestController {
 		return service.crearCustomer(customer);
 	}
 	
-	@GetMapping(value="/customer/{idCustomer}")
+	@GetMapping(value="/customer/buscar/{idCustomer}")
 	public Customer buscarCliente(@PathVariable int idCustomer) {
 		return service.buscarCustomer(idCustomer);
 	}

@@ -8,6 +8,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.cache.caffeine.CaffeineCacheManager;
+
 
 @SpringBootApplication
 @EnableAutoConfiguration
@@ -24,6 +26,13 @@ public class AdminserverApplication {
         http.authorizeHttpRequests().anyRequest().permitAll()
                 .and().csrf().disable();
         return http.build();
+    }
+    
+    @Bean
+    public CaffeineCacheManager cacheManager() {
+        CaffeineCacheManager cacheManager = new CaffeineCacheManager();
+        // Puedes personalizar la configuración de Caffeine aquí si es necesario
+        return cacheManager;
     }
             
 
